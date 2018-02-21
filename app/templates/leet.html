@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leet score</title>
+    <style>
+        code{
+            background:rgba(195,203,196,0.8)
+
+        }
+
+        pre{
+            background:rgba(195,203,196,0.8)
+        }
+
+        .method{
+            display: inline-block;
+            background: rgba(73,90,255,0.8);
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Leet score api</h2>
+        <p>Score and graph api for the the leet fun api</p>
+    </header>
+    <main>
+        <div class="endpoints">
+            Here are the different endpoints:
+        </div>
+
+        <div class="desc">
+        1. <code><p class="method">GET</p>/leet/score/{server_id}</code><br>
+            Fetches the score for all users from the given server id.
+
+            Example:
+        </div>
+<pre>
+<code>
+{
+  "scores": [
+    {
+      "month_score": 9,
+      "nick": "nick1",
+      "score": 4,
+      "streak": 0
+    },
+    {
+      "month_score": 7,
+      "nick": "nick2",
+      "score": 27,
+      "streak": 0
+    },
+    {
+      "month_score": 6,
+      "nick": "nick3",
+      "score": 177,
+      "streak": 1
+    },
+     ...
+}
+</code>
+</pre>
+
+        <div class="desc">
+        2. <code><p class="method">GET</p>/leet/graph/{server_id}</code><br>
+            Fetches the graph data for all nicks belonging to a server.
+
+            Example:
+        </div>
+<pre>
+<code>
+{
+  "Nick1": {
+    "graph": [
+      {
+        "date": "2017-06-16",
+        "streak": 0
+      },
+      {
+        "date": "2017-06-17",
+        "streak": 1
+      },
+        ...
+    {
+  "Nick2": {
+    "graph": [
+      {
+        "date": "2017-06-16",
+        "streak": 0
+      },
+      {
+        "date": "2017-06-17",
+        "streak": 1
+      },
+        ...
+}
+</code>
+</pre>
+
+                <div class="desc">
+        3. <code><p class="method">GET</p>/leet/graph/{server_id}/{nick}</code><br>
+            Fetches the graph data for given nick belonging to a server.
+
+            Example:
+        </div>
+<pre>
+<code>
+{
+  "Nick": {
+    "graph": [
+      {
+        "date": "2017-06-16",
+        "streak": 0
+      },
+      {
+        "date": "2017-06-17",
+        "streak": 1
+      },
+        ...
+}
+</code>
+</pre>
+
+
+                <div class="desc">
+        4. <code><p class="method">GET</p>/leet/graph/average/{server_id}</code><br>
+            Fetches the average streak for each day of the given server.
+
+            Example:
+        </div>
+<pre>
+<code>
+{
+    'graph': [
+    {
+      "avg_streak": 0.46153846153846156,
+      "date": "2017-12-23"
+    },
+    {
+      "avg_streak": 0.3076923076923077,
+      "date": "2017-12-24"
+    },
+    {
+      "avg_streak": 0.23076923076923078,
+      "date": "2017-12-25"
+    },
+    ...
+  ]
+}
+</code>
+</pre>
+
+                        <div class="desc">
+        5. <code><p class="method">GET</p>/leet/graph/average/{server_id}/{nick}</code><br>
+            Fetches the average streak, highest streak and number of days its based on for the given user from the given server.
+
+            Example:
+        </div>
+<pre>
+<code>
+{
+  "graph": [
+    {
+      "avg_streak": 0.7473684210526316,
+      "count": 190,
+      "max_streak": 5
+    }
+  ]
+}
+</code>
+</pre>
+
+
+More endpoints might come in the future when leet cash is implemented.
+    </main>
+</body>
+</html>
