@@ -15,7 +15,7 @@ def get_leet_json(serverid):
     try:
         conn = sqlite3.connect(app.config['DATABASE_PATH'])
         c = conn.cursor()
-        query = c.execute("SELECT nick, score, streak, month_score "
+        query = c.execute("SELECT nick, score, streak, month_score, cash "
                           "FROM Score "
                           "JOIN User on Score.user_id = User.id "
                           "NATURAL JOIN "
@@ -31,7 +31,7 @@ def get_leet_json(serverid):
                           "WHERE Score.server_id = ? "
                           "ORDER BY month_score desc;", (serverid,serverid,)).fetchall()
         for s in query:
-            data["scores"].append({'nick': s[0], 'score': s[1], 'streak': s[2], 'month_score':s[3]})
+            data["scores"].append({'nick': s[0], 'score': s[1], 'streak': s[2], 'month_score':s[3], "cash": s[4]})
         conn.close()
     except Exception as e:
         print(e)
